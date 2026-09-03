@@ -33,15 +33,15 @@ export default function CountryCard({ country }: { country: CountryPipeline }) {
           label="MEIO"
           value={country.meio}
           colorClass="bg-teal"
-          widthPercent={100}
-          taper={9}
+          widthPercent={78}
+          taper={10}
         />
         <FunnelStage
           label="FUNDO"
           value={country.fundo}
           colorClass="bg-skyblue"
-          widthPercent={100}
-          taper={9}
+          widthPercent={58}
+          taper={13}
         />
       </div>
     </div>
