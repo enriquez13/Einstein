@@ -1,4 +1,5 @@
 import FunnelStage from "./FunnelStage";
+import CurvedArrow from "./CurvedArrow"; // <-- Importar la flecha
 import type { PipelineData } from "@/lib/data";
 
 export default function ConsolidatedView({ data }: { data: PipelineData }) {
@@ -13,7 +14,7 @@ export default function ConsolidatedView({ data }: { data: PipelineData }) {
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-navy-text sm:text-3xl">
           PIPELINE INTERNACIONAL{" "}
-          <span className="text-navy-text/70">| VISÃO</span>
+          <span className="text-navy-text">| VISÃO</span>
           <br />
           <span className="border-b-4 border-teal pb-1">CONSOLIDADA</span>
         </h1>
@@ -49,8 +50,8 @@ export default function ConsolidatedView({ data }: { data: PipelineData }) {
           </div>
         </div>
 
-        {/* Funnel */}
-        <div className="flex flex-col items-center gap-6 py-2">
+        {/* Funnel con Flecha Posicionada */}
+        <div className="relative flex flex-col items-center gap-4 py-2">
           <FunnelStage
             label="TOPO | PROSPECÇÃO"
             value={totals.topo}
@@ -60,45 +61,30 @@ export default function ConsolidatedView({ data }: { data: PipelineData }) {
             size="lg"
             subtitle="abertura de relacionamento"
           />
-          <div className="flex w-full items-center justify-center gap-6">
-            <FunnelStage
-              label="MEIO | QUALIFICAÇÃO"
-              value={totals.meio}
-              colorClass="bg-teal"
-              widthPercent={68}
-              taper={9}
-              size="lg"
-              subtitle="consideração e construção de oportunidade"
-            />
-          </div>
-          <div className="relative flex w-full items-center justify-center">
-            <FunnelStage
-              label="FUNDO | CONVERSÃO"
-              value={totals.fundo}
-              colorClass="bg-skyblue"
-              widthPercent={46}
-              taper={11}
-              size="lg"
-              subtitle="negociação e avanço para fechamento"
-            />
-            <div className="absolute right-2 top-1/2 hidden -translate-y-1/2 flex-col items-center text-skyblue sm:flex">
-              <svg
-                width="46"
-                height="46"
-                viewBox="0 0 46 46"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M40 14c0 10-8 18-18 18H10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <path d="M16 26 8 32l9 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-              <span className="text-xs font-bold text-skyblue">100%</span>
-            </div>
+
+          <FunnelStage
+            label="MEIO | QUALIFICAÇÃO"
+            value={totals.meio}
+            colorClass="bg-teal"
+            widthPercent={68}
+            taper={9}
+            size="lg"
+            subtitle="consideração e construção de oportunidade"
+          />
+
+          <FunnelStage
+            label="FUNDO | CONVERSÃO"
+            value={totals.fundo}
+            colorClass="bg-skyblue"
+            widthPercent={46}
+            taper={11}
+            size="lg"
+            subtitle="negociação e avanço para fechamento"
+          />
+
+          {/* Flecha posicionada a la derecha conectando MEIO y FUNDO */}
+          <div className="absolute right-4 top-[60%] hidden -translate-y-1/2 lg:block">
+            <CurvedArrow />
           </div>
         </div>
 

@@ -29,10 +29,12 @@ export default function FunnelStage({
       }}
     >
       <div
-        className={`flex w-full flex-col items-center justify-center text-center text-white ${colorClass} ${
-          size === "lg" ? "px-10 py-7" : "px-4 py-3"
-        }`}
-      >
+  className={`flex w-full flex-col items-center justify-center text-center text-white ${colorClass} ${
+    size === "lg" 
+      ? "px-2 py-3 sm:px-1 sm:py-2"   // En móvil px-4 py-2, en pantallas sm o superiores px-8 py-5
+      : "px-2 py-3 sm:px-1 sm:py-2" // En móvil px-1 py-1.5, en pantallas sm o superiores px-4 py-3
+  }`}
+>
         {size === "sm" ? (
           <span className="text-[12px] font-bold tracking-wide">
             {label} {value}
@@ -44,7 +46,7 @@ export default function FunnelStage({
               {value}
             </span>
             {subtitle && (
-              <span className="mt-2 max-w-md text-sm font-normal text-white/90">
+              <span className="mt-2 max-w-md text-[11px] font-normal text-white/90">
                 {subtitle}
               </span>
             )}

@@ -4,17 +4,19 @@ import type { CountryPipeline } from "@/lib/data";
 
 export default function CountryCard({ country }: { country: CountryPipeline }) {
   return (
-    <div className="mx-auto flex aspect-square w-full max-w-xs flex-col rounded-card border border-cardborder bg-white p-5 shadow-card sm:block sm:aspect-auto sm:max-w-none">
+    <div className="mx-auto flex  w-full max-w-xs flex-col rounded-card border border-cardborder bg-white p-5 shadow-card sm:block sm:aspect-auto sm:max-w-none">
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold uppercase tracking-wide text-navy-text">
             {country.name}
           </span>
+        </div>
+        <div className="flex items-center gap-2">
           <Image
             src={`https://flagcdn.com/w80/${country.flagCode}.png`}
             alt={`Bandeira ${country.name}`}
-            width={28}
-            height={20}
+            width={45}
+            height={32}
             className="rounded-[3px] object-cover shadow-sm"
             unoptimized
           />
@@ -34,21 +36,21 @@ export default function CountryCard({ country }: { country: CountryPipeline }) {
           label="TOPO"
           value={country.topo}
           colorClass="bg-navy"
-          widthPercent={100}
-          taper={9}
+          widthPercent={92}
+          taper={10}
         />
         <FunnelStage
           label="MEIO"
           value={country.meio}
           colorClass="bg-teal"
-          widthPercent={78}
+          widthPercent={68}
           taper={10}
         />
         <FunnelStage
           label="FUNDO"
           value={country.fundo}
           colorClass="bg-skyblue"
-          widthPercent={58}
+          widthPercent={46}
           taper={13}
         />
       </div>
