@@ -4,7 +4,7 @@ import type { CountryPipeline } from "@/lib/data";
 
 export default function CountryCard({ country }: { country: CountryPipeline }) {
   return (
-    <div className="rounded-card border border-cardborder bg-white p-5 shadow-card">
+    <div className="mx-auto flex aspect-square w-full max-w-xs flex-col rounded-card border border-cardborder bg-white p-5 shadow-card sm:block sm:aspect-auto sm:max-w-none">
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold uppercase tracking-wide text-navy-text">
@@ -29,7 +29,7 @@ export default function CountryCard({ country }: { country: CountryPipeline }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-1 flex-col justify-between gap-2 sm:flex-none sm:justify-start">
         <FunnelStage
           label="TOPO"
           value={country.topo}
