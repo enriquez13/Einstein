@@ -16,7 +16,7 @@ export type FunnelStage = "TOPO" | "MEIO" | "FUNDO";
 export interface CountryPipeline {
   key: string; // nombre de la pestaña en el Excel
   name: string; // nombre a mostrar
-  flag: string; // emoji de bandera
+  flagCode: string; // código ISO 3166-1 alpha-2, usado con flagcdn.com
   topo: number;
   meio: number;
   fundo: number;
@@ -41,14 +41,14 @@ export interface PipelineData {
 // Conteo real por país, calculado a partir de la columna A ("Fúnil") de
 // cada pestaña del Excel subido el 2026-09-02.
 const RAW_COUNTS: Omit<CountryPipeline, "total">[] = [
-  { key: "Colombia", name: "Colômbia", flag: "🇨🇴", topo: 10, meio: 1, fundo: 1 },
-  { key: "México", name: "México", flag: "🇲🇽", topo: 12, meio: 0, fundo: 0 },
-  { key: "Chile", name: "Chile", flag: "🇨🇱", topo: 5, meio: 0, fundo: 1 },
-  { key: "Peru", name: "Peru", flag: "🇵🇪", topo: 6, meio: 1, fundo: 0 },
-  { key: "Equador", name: "Equador", flag: "🇪🇨", topo: 4, meio: 0, fundo: 0 },
-  { key: "Costa Rica", name: "Costa Rica", flag: "🇨🇷", topo: 1, meio: 0, fundo: 0 },
-  { key: "Bolivia", name: "Bolívia", flag: "🇧🇴", topo: 1, meio: 0, fundo: 0 },
-  { key: "Uruguay", name: "Uruguai", flag: "🇺🇾", topo: 1, meio: 0, fundo: 0 },
+  { key: "Colombia", name: "Colômbia", flagCode: "co", topo: 10, meio: 1, fundo: 1 },
+  { key: "México", name: "México", flagCode: "mx", topo: 12, meio: 0, fundo: 0 },
+  { key: "Chile", name: "Chile", flagCode: "cl", topo: 5, meio: 0, fundo: 1 },
+  { key: "Peru", name: "Peru", flagCode: "pe", topo: 6, meio: 1, fundo: 0 },
+  { key: "Equador", name: "Equador", flagCode: "ec", topo: 4, meio: 0, fundo: 0 },
+  { key: "Costa Rica", name: "Costa Rica", flagCode: "cr", topo: 1, meio: 0, fundo: 0 },
+  { key: "Bolivia", name: "Bolívia", flagCode: "bo", topo: 1, meio: 0, fundo: 0 },
+  { key: "Uruguay", name: "Uruguai", flagCode: "uy", topo: 1, meio: 0, fundo: 0 },
 ];
 
 function buildData(): PipelineData {

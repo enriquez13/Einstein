@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FunnelStage from "./FunnelStage";
 import type { CountryPipeline } from "@/lib/data";
 
@@ -9,7 +10,14 @@ export default function CountryCard({ country }: { country: CountryPipeline }) {
           <span className="text-sm font-bold uppercase tracking-wide text-navy-text">
             {country.name}
           </span>
-          <span className="text-xl leading-none">{country.flag}</span>
+          <Image
+            src={`https://flagcdn.com/w80/${country.flagCode}.png`}
+            alt={`Bandeira ${country.name}`}
+            width={28}
+            height={20}
+            className="rounded-[3px] object-cover shadow-sm"
+            unoptimized
+          />
         </div>
         <div className="text-right">
           <div className="text-xl font-bold leading-none text-teal">
