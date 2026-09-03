@@ -12,7 +12,7 @@ export default function CountriesView({ data }: { data: PipelineData }) {
     <div>
       <header className="mb-8">
         <h1 className="inline text-2xl font-bold text-navy-text sm:text-3xl">
-          PIPELINE POR PAÍS <span className="text-navy-text/70">| CAPILARIDADE</span>
+          PIPELINE POR PAÍS <span className="text-navy-text">| CAPILARIDADE</span>
           <br />
           <span className="border-b-4 border-teal pb-1">REGIONAL</span>
         </h1>
